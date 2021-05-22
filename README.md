@@ -1,0 +1,2 @@
+# libmysql
+Simple MySQL ORM
