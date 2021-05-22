@@ -23,4 +23,9 @@ class StringBuilder {
 	public function buf() : string {
 		return $this->buf;
 	}
+
+	public function delete(int $len) : self {
+		$this->buf = substr($this->buf, 0, strlen($this->buf) - $len);
+		return $this;
+	}
 }

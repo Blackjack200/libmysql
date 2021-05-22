@@ -53,7 +53,7 @@ class Table implements SQL {
 		$ret->tab()
 			->append("PRIMARY KEY (`$this->key`)")->enter()
 			->append(')')
-			->tab()->append('DEFAULT CHARSET=utf8;');
+			->space()->append('DEFAULT CHARSET=utf8;');
 		return $ret->buf();
 	}
 }
