@@ -1,5 +1,6 @@
 <?php
 
+use libmysql\Delete;
 use libmysql\Insert;
 use libmysql\Select;
 use libmysql\Table;
@@ -7,19 +8,24 @@ use libmysql\types\impl\VarChar;
 use libmysql\types\impl\VarInt;
 use libmysql\Update;
 
-require 'SQL.php';
-require 'Insert.php';
-require 'Update.php';
+
 require 'utils/StringBuilder.php';
 require 'utils/SQLBuilder.php';
-require 'Table.php';
-require 'Select.php';
+
 require 'types/Type.php';
 require 'types/BaseType.php';
 require 'types/Numeric.php';
 require 'types/VarType.php';
 require 'types/impl/VarInt.php';
 require 'types/impl/VarChar.php';
+
+require 'SQL.php';
+require 'Table.php';
+require 'Insert.php';
+require 'Update.php';
+require 'Select.php';
+require 'Delete.php';
+
 {
 	$chr = new VarChar();
 	$chr->len(16);
@@ -61,4 +67,9 @@ require 'types/impl/VarChar.php';
 		->select('death')
 		->where("`name`='test'");
 	echo $select->get(), "\n";
+}
+{
+	$delete = new Delete();
+	$delete->name('joke')->where("`name`='id'");
+	echo $delete->get(), "\n";
 }
